@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Atualização do Ano no Rodapé ---
+    
+    // ----- 1. Atualização Automática do Ano no Rodapé -----
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // --- 2. Animação de Fade-in para Seções (Intersection Observer) ---
+    // ----- 2. Animação de Fade-in ao Rolar (Intersection Observer) -----
+    // Seleciona todos os elementos que devem "aparecer" ao rolar
     const faders = document.querySelectorAll('.fade-in-section');
+    
     const appearOptions = {
         threshold: 0.1, // O elemento precisa estar 10% visível
-        rootMargin: "0px 0px -50px 0px" // Começa a "ver" 50px antes do final da tela
+        rootMargin: "0px 0px -50px 0px" // Começa a carregar 50px antes de atingir o fim da tela
     };
 
     const appearOnScroll = new IntersectionObserver(function(
@@ -18,24 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
     ) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
-                return;
+                return; // Se não estiver visível, não faz nada
             } else {
-                entry.target.classList.add('is-visible');
-                appearOnScroll.unobserve(entry.target);
+                entry.target.classList.add('is-visible'); // Adiciona a classe que o torna visível
+                appearOnScroll.unobserve(entry.target); // Para de observar (animação só acontece 1 vez)
             }
         });
     }, appearOptions);
 
     faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+        appearOnScroll.observe(fader); // Observa cada elemento
     });
 
-    // --- 3. Animação de Neblina (Canvas na Seção Hero) ---
+    // ----- 3. Animação de Neblina/Fumaça (Canvas) -----
     const canvas = document.getElementById('freshness-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
-        const numParticles = 250; // Aumentei o número de partículas
+        const numParticles = 100; // Quantidade de partículas de fumaça
 
         function resizeCanvas() {
             canvas.width = canvas.offsetWidth;
@@ -44,54 +47,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         class Particle {
             constructor() {
-                // Começa de baixo ou levemente fora da tela
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * 100 + canvas.height; // Começa na base
-                this.size = Math.random() * 3 + 1; // Partículas um pouco maiores
+                this.y = canvas.height + Math.random() * 50; // Começa de baixo
+                this.size = Math.random() * 35 + 20; // Tamanho da "fumaça"
+                this.speedY = -(Math.random() * 0.5 + 0.2); // Velocidade de subida
                 this.speedX = Math.random() * 0.4 - 0.2; // Movimento lateral leve
-                this.speedY = Math.random() * -0.3 - 0.1; // Sobe lentamente
-                // Cor cinza-azulada com opacidade um pouco maior
-                this.color = `rgba(200, 210, 220, ${Math.random() * 0.15 + 0.05})`; 
-                this.life = 0;
-                this.maxLife = Math.random() * 400 + 100; // Tempo de vida da partícula
+                // Cor cinza-azulada sutil e com opacidade muito baixa
+                this.color = `rgba(200, 210, 220, ${Math.random() * 0.05 + 0.02})`; 
             }
-            
+
             // Atualiza a posição da partícula
             update() {
-                this.x += this.speedX;
                 this.y += this.speedY;
-                this.life++;
+                this.x += this.speedX;
 
-                // "Vindo e indo" - Renasce a partícula quando ela morre (sai da tela ou atinge o tempo de vida)
-                if (this.y < -this.size || this.life > this.maxLife) {
+                // Se a partícula saiu do topo, ela "morre" e renasce embaixo
+                if (this.y < -this.size) {
+                    this.y = canvas.height + Math.random() * 50;
                     this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * 100 + canvas.height;
-                    this.size = Math.random() * 3 + 1;
-                    this.speedX = Math.random() * 0.4 - 0.2;
-                    this.speedY = Math.random() * -0.3 - 0.1;
-                    this.life = 0;
-                    this.color = `rgba(200, 210, 220, ${Math.random() * 0.15 + 0.05})`;
+                    this.size = Math.random() * 35 + 20;
+                    this.speedY = -(Math.random() * 0.5 + 0.2);
+                    this.color = `rgba(200, 210, 220, ${Math.random() * 0.05 + 0.02})`;
                 }
             }
-            
-            // Desenha a partícula
+
+            // Desenha a partícula (círculo)
             draw() {
-                // Efeito de "fade out" no final da vida
-                let opacity = 1;
-                if (this.life > this.maxLife - 100) {
-                    opacity = (this.maxLife - this.life) / 100;
-                }
-                
-                ctx.globalAlpha = opacity;
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
-                ctx.globalAlpha = 1; // Reseta o alpha global
             }
         }
 
-        // Cria as partículas
+        // Cria as partículas iniciais
         function initParticles() {
             particles = [];
             for (let i = 0; i < numParticles; i++) {
@@ -99,69 +88,60 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Loop de animação
+        // Loop da Animação
         function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa a tela
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+                particles[i].update(); // Atualiza posição
+                particles[i].draw(); // Desenha
             }
-            requestAnimationFrame(animateParticles);
+            requestAnimationFrame(animateParticles); // Repete o loop
         }
 
-        // Inicialização
+        // Inicializa tudo
         resizeCanvas();
         initParticles();
         animateParticles();
 
-        // Recria as partículas se a janela for redimensionada
+        // Refaz o canvas se a janela mudar de tamanho
         window.addEventListener('resize', () => {
             resizeCanvas();
-            initParticles(); 
+            initParticles();
         });
     }
-    
-    // --- 4. Lógica do Pop-up de Saída (Exit-Intent) ---
-    const popupOverlay = document.getElementById('popup-overlay');
+
+    // ----- 4. Lógica do Pop-up de Saída (Exit-Intent) -----
     const popupModal = document.getElementById('popup-modal');
+    const popupOverlay = document.getElementById('popup-overlay');
     const closeButton = document.getElementById('popup-close');
-    let popupShown = false; // Garante que o pop-up só apareça uma vez
+    let popupShown = false; // Flag para mostrar o pop-up apenas uma vez
 
-    // Função para mostrar o pop-up
     function showPopup() {
-        if (popupShown) return; // Não mostra se já foi mostrado
-        popupOverlay.classList.remove('hidden');
-        popupModal.classList.remove('hidden');
-        popupShown = true;
+        if (!popupShown) {
+            popupModal.classList.remove('hidden');
+            popupOverlay.classList.remove('hidden');
+            popupShown = true; // Marca como exibido
+        }
     }
 
-    // Função para esconder o pop-up
     function hidePopup() {
-        popupOverlay.classList.add('hidden');
         popupModal.classList.add('hidden');
+        popupOverlay.classList.add('hidden');
     }
 
-    // Detecta a intenção de saída (mouse saindo pelo topo da tela)
+    // Evento de Saída (Mouse saindo pelo topo da janela)
     document.addEventListener('mouseleave', (e) => {
-        if (e.clientY <= 0) { // Se o mouse saiu pelo topo
+        if (e.clientY <= 0) { // Se o mouse saiu por cima
             showPopup();
         }
     });
 
-    // Fecha o pop-up ao clicar no 'X'
+    // Eventos para fechar o pop-up
     if (closeButton) {
         closeButton.addEventListener('click', hidePopup);
     }
-
-    // Fecha o pop-up ao clicar no overlay (fundo escuro)
     if (popupOverlay) {
-        popupOverlay.addEventListener('click', (e) => {
-            if (e.target === popupOverlay) { // Garante que clicou só no fundo, não no modal
-                hidePopup();
-            }
-        });
+        popupOverlay.addEventListener('click', hidePopup);
     }
-
 });
-
 
