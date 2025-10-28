@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
-        const numParticles = 150; // Mais partículas para um efeito de "neblina"
+        const numParticles = 250; // Aumentei o número de partículas
 
         function resizeCanvas() {
             canvas.width = canvas.offsetWidth;
@@ -44,33 +44,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         class Particle {
             constructor() {
+                // Começa de baixo ou levemente fora da tela
                 this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1; // Partículas ligeiramente maiores
-                this.speedX = Math.random() * 0.1 - 0.05; // Movimento MUITO lento
-                this.speedY = Math.random() * 0.1 - 0.05; // Movimento MUITO lento
-                // Cor cinza-azulada etérea com opacidade muito baixa
-                this.color = `rgba(200, 210, 220, ${Math.random() * 0.1 + 0.02})`; 
+                this.y = Math.random() * 100 + canvas.height; // Começa na base
+                this.size = Math.random() * 3 + 1; // Partículas um pouco maiores
+                this.speedX = Math.random() * 0.4 - 0.2; // Movimento lateral leve
+                this.speedY = Math.random() * -0.3 - 0.1; // Sobe lentamente
+                // Cor cinza-azulada com opacidade um pouco maior
+                this.color = `rgba(200, 210, 220, ${Math.random() * 0.15 + 0.05})`; 
+                this.life = 0;
+                this.maxLife = Math.random() * 400 + 100; // Tempo de vida da partícula
             }
             
             // Atualiza a posição da partícula
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
+                this.life++;
 
-                // Faz as partículas reaparecerem do outro lado (wrap)
-                if (this.x > canvas.width + this.size) this.x = -this.size;
-                if (this.x < -this.size) this.x = canvas.width + this.size;
-                if (this.y > canvas.height + this.size) this.y = -this.size;
-                if (this.y < -this.size) this.y = canvas.height + this.size;
+                // "Vindo e indo" - Renasce a partícula quando ela morre (sai da tela ou atinge o tempo de vida)
+                if (this.y < -this.size || this.life > this.maxLife) {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * 100 + canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 0.4 - 0.2;
+                    this.speedY = Math.random() * -0.3 - 0.1;
+                    this.life = 0;
+                    this.color = `rgba(200, 210, 220, ${Math.random() * 0.15 + 0.05})`;
+                }
             }
             
             // Desenha a partícula
             draw() {
+                // Efeito de "fade out" no final da vida
+                let opacity = 1;
+                if (this.life > this.maxLife - 100) {
+                    opacity = (this.maxLife - this.life) / 100;
+                }
+                
+                ctx.globalAlpha = opacity;
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
+                ctx.globalAlpha = 1; // Reseta o alpha global
             }
         }
 
@@ -146,4 +163,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
