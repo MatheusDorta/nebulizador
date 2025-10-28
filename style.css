@@ -47,3 +47,26 @@
     pointer-events: none; 
 }
 
+/* --- NOVOS ESTILOS PARA O POP-UP DE SAÍDA --- */
+
+/* O overlay escuro que cobre a página */
+#popup-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* O modal (pop-up) em si */
+#popup-modal {
+    transition: all 0.3s ease-in-out;
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0;
+}
+
+/* Animação de entrada do pop-up (o JS remove 'hidden') */
+#popup-overlay:not(.hidden) {
+    opacity: 1;
+}
+#popup-modal:not(.hidden) {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
