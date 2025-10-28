@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essencial Higiene - Sistemas de Nebulização e Odorização</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Inter (padrão do Tailwind) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Configuração do Tailwind para usar as cores da sua marca -->
+    <!-- Este script permanece no HTML para configurar o CDN do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Cores extraídas da sua logo
+                        'essencial-blue': '#00a8e1', // Azul vibrante
+                        'essencial-green': '#8bc53f', // Verde folha
+                        'essencial-gray': '#808285', // Cinza do texto "Higiene"
+                        'brand-dark': '#2a3035', // Um cinza escuro/chumbo para sofisticação
+                    },
+                    animation: {
+                        'slow-fade-in': 'fadeIn 1.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-brand-dark font-sans antialiased">
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/554599434668?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20sistemas%20de%20nebulização%20e%20odorização." target="_blank" class="fixed bottom-6 right-6 bg-essencial-green text-white p-4 rounded-full shadow-lg z-50 hover:bg-essencial-green/90 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#">
+                <img src="image_7be622.png" alt="Logo Essencial Higiene" class="h-12 md:h-14 w-auto">
+            </a>
+            <!-- CTA Header -->
+            <a href="#contato" class="bg-essencial-blue text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-essencial-blue/80 transition-all duration-300 text-sm md:text-base">
+                Pedir Orçamento
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gray-50 overflow-hidden">
+        <!-- Canvas para Animação de Frescor -->
+        <canvas id="freshness-canvas"></canvas>
+
+        <div class="relative container mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28 flex flex-col lg:flex-row items-center z-10">
+            <!-- Text Content -->
+            <div class="lg:w-1/2 w-full text-center lg:text-left mb-12 lg:mb-0">
+                <span class="text-essencial-blue font-semibold uppercase tracking-wider text-sm">Novo Serviço Essencial</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mt-4 mb-6 leading-tight animate-slow-fade-in">
+                    A Atmosfera Perfeita Existe.
+                </h1>
+                <p class="text-lg md:text-xl text-essencial-gray font-light mb-10 max-w-xl mx-auto lg:mx-0">
+                    Descubra o poder da nebulização e odorização para criar ambientes inesquecíveis. Transforme seu espaço com tecnologia de ponta, em um sistema de aluguel completo.
+                </p>
+                <a href="https://wa.me/554599434668?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20sistemas%20de%20nebulização%20e%20odorização." target="_blank" class="bg-essencial-blue text-white font-bold text-lg px-10 py-4 rounded-lg shadow-xl hover:bg-essencial-blue/80 transition-all duration-300 transform hover:scale-105">
+                    Quero Saber Mais
+                </a>
+            </div>
+            
+            <!-- Image Content -->
+            <div class="lg:w-1/2 w-full flex justify-center lg:justify-end animate-slow-fade-in" style="animation-delay: 200ms;">
+                <img src="odorizador4.jpg" alt="Equipamento de Nebulização e Odorização" class="w-full max-w-md rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: O Problema / A Solução -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto fade-in-section">
+                <span class="text-essencial-green font-semibold uppercase tracking-wider text-sm">Marketing Olfativo</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-4 mb-5">
+                    Seu ambiente diz quem você é. Qual a sua assinatura?
+                </h2>
+                <p class="text-lg text-essencial-gray font-light">
+                    Maus odores, ar parado ou a falta de uma identidade olfativa comprometem a experiência do seu cliente. Em um mercado competitivo, a primeira impressão é a que fica.
+                </p>
+            </div>
+
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Benefício 1: Fragrâncias -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg fade-in-section" style="transition-delay: 100ms;">
+                    <h3 class="text-2xl font-semibold text-essencial-blue mb-4">Fragrâncias Premium</h3>
+                    <p class="text-essencial-gray font-light">
+                        Escolha a assinatura olfativa ideal em nosso catálogo: <strong>Palacio, Pitanga, Marine, Capim Limão, Oriente e Garden.</strong> Crie uma poderosa âncora de memória.
+                    </p>
+                </div>
+                <!-- Benefício 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg fade-in-section" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-semibold text-essencial-blue mb-4">Neutralização Eficaz</h3>
+                    <p class="text-essencial-gray font-light">
+                        Nossa tecnologia de nebulização não mascara odores, ela os neutraliza. Perfeito para academias, clínicas, banheiros e restaurantes.
+                    </p>
+                </div>
+                <!-- Benefício 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg fade-in-section" style="transition-delay: 300ms;">
+                    <h3 class="text-2xl font-semibold text-essencial-blue mb-4">Tecnologia de Nebulização</h3>
+                    <p class="text-essencial-gray font-light">
+                        A névoa ultrafina (partículas 50x menores que o aerosol) se distribui de forma homogênea, cobrindo grandes áreas com máxima eficiência e sem deixar resíduos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Showcase de Imagens -->
+    <section class="py-20 md:py-28 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-5">
+                    Elegância que se vê. Frescor que se sente.
+                </h2>
+                <p class="text-lg text-essencial-gray font-light mb-16">
+                    Nossos equipamentos possuem design sofisticado que se integram perfeitamente a qualquer decoração, de corredores a salas de reunião.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                <div class="rounded-lg overflow-hidden shadow-2xl fade-in-section" style="transition-delay: 100ms;">
+                    <img src="odorizador3.jpg" alt="Odorizador em sala de estar" class="w-full h-full object-cover aspect-[4/5]">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-2xl fade-in-section" style="transition-delay: 200ms;">
+                    <img src="odorizador2.jpg" alt="Odorizador em corredor de escritório" class="w-full h-full object-cover aspect-[4/5]">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-2xl fade-in-section" style="transition-delay: 300ms;">
+                    <img src="odorizador5.jpg" alt="Detalhe do odorizador na parede" class="w-full h-full object-cover aspect-[4/5]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Como Funciona (Sistema de Aluguel) -->
+    <section class="py-20 md:py-28 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto fade-in-section">
+                <span class="text-essencial-blue font-semibold uppercase tracking-wider text-sm">Nosso Serviço</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-4 mb-16">
+                    Zero Preocupação: A Vantagem do Aluguel
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <!-- Passo 1 -->
+                <div class="fade-in-section" style="transition-delay: 100ms;">
+                    <div class="w-20 h-20 bg-essencial-blue/10 text-essencial-blue text-3xl font-bold rounded-full flex items-center justify-center mx-auto mb-6">1</div>
+                    <h3 class="text-2xl font-semibold text-brand-dark mb-3">Consultoria e Instalação</h3>
+                    <p class="text-essencial-gray font-light">
+                        Analisamos seu espaço e necessidade. Nossos técnicos instalam o equipamento no local ideal, sem custo adicional.
+                    </p>
+                </div>
+                <!-- Passo 2 -->
+                <div class="fade-in-section" style="transition-delay: 200ms;">
+                    <div class="w-20 h-20 bg-essencial-blue/10 text-essencial-blue text-3xl font-bold rounded-full flex items-center justify-center mx-auto mb-6">2</div>
+                    <h3 class="text-2xl font-semibold text-brand-dark mb-3">Recargas e Manutenção</h3>
+                    <p class="text-essencial-gray font-light">
+                        Você nunca fica sem. Monitoramos e agendamos as trocas de fragrância e realizamos manutenção preventiva. Tudo incluso na mensalidade.
+                    </p>
+                </div>
+                <!-- Passo 3 -->
+                <div class="fade-in-section" style="transition-delay: 300ms;">
+                    <div class="w-20 h-20 bg-essencial-blue/10 text-essencial-blue text-3xl font-bold rounded-full flex items-center justify-center mx-auto mb-6">3</div>
+                    <h3 class="text-2xl font-semibold text-brand-dark mb-3">Suporte Total</h3>
+                    <p class="text-essencial-gray font-light">
+                        Qualquer problema? Nossa equipe está pronta para resolver rapidamente, garantindo que seu ambiente esteja sempre perfeito.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: CTA Final -->
+    <section id="contato" class="bg-brand-dark text-white">
+        <div class="container mx-auto px-6 py-20 md:py-28 text-center fade-in-section">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Pronto para transformar seu espaço?
+            </h2>
+            <p class="text-lg md:text-xl text-gray-300 font-light mb-12 max-w-2xl mx-auto">
+                Deixe que seus clientes e colaboradores sintam a diferença. Entre em contato agora mesmo, sem compromisso, e descubra o plano de odorização ideal para o seu negócio.
+            </p>
+            <a href="https://wa.me/554599434668?text=Olá!%20Gostaria%20de%20solicitar%20uma%20demonstração%20do%20sistema%20de%20nebulização." target="_blank" class="bg-essencial-green text-white font-bold text-lg px-12 py-5 rounded-lg shadow-xl hover:bg-essencial-green/80 transition-all duration-300 transform hover:scale-105">
+                Solicite uma Demonstração
+            </a>
+            <p class="mt-8 text-gray-400 text-lg">
+                Ou ligue: <span class="font-semibold text-white">45 9943-4668</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-essencial-gray">
+        <div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-6 md:mb-0">
+                <img src="image_7be622.png" alt="Logo Essencial Higiene" class="h-12 w-auto mx-auto md:mx-0">
+                <p class="mt-4 text-sm">Criando ambientes memoráveis.</p>
+            </div>
+            <div class="text-sm">
+                <p>&copy; <span id="current-year"></span> Essencial Higiene. Todos os direitos reservados.</p>
+                <p>CNPJ 34.121.784/0001-28</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>
