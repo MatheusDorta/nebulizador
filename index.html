@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Essencial Higiene - Sistemas de Nebulização e Odorização</title>
     
-    <!-- Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Inter (padrão do Tailwind) --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Customizado --><link rel="stylesheet" href="style.css">
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Configuração do Tailwind para usar as cores da sua marca --><!-- Este script permanece no HTML para configurar o CDN do Tailwind --><script>
+    <!-- Configuração do Tailwind (Aplicando a nova paleta de cores) -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -21,11 +25,14 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        // Cores extraídas da sua logo
-                        'essencial-blue': '#00a8e1', // Azul vibrante
-                        'essencial-green': '#8bc53f', // Verde folha
-                        'essencial-gray': '#808285', // Cinza do texto "Higiene"
-                        'brand-dark': '#2a3035', // Um cinza escuro/chumbo para sofisticação
+                        // Cores da Marca (Azul e Verde)
+                        'essencial-blue': '#00a8e1', 
+                        'essencial-green': '#8bc53f', 
+                        
+                        // Nova Paleta de Cores (Sofisticada)
+                        'brand-bg': '#F8F8F8', // Fundo principal (substitui o branco puro)
+                        'brand-text': '#333333', // Texto principal (substitui o preto puro)
+                        'essencial-gray': '#757575', // Cinza para subtítulos
                     },
                     animation: {
                         'slow-fade-in': 'fadeIn 1.5s ease-in-out',
@@ -41,36 +48,47 @@
         }
     </script>
 </head>
-<body class="bg-white text-brand-dark font-sans antialiased">
+<body class="bg-brand-bg text-brand-text font-sans antialiased">
 
-    <!-- Botão Flutuante do WhatsApp --><a href="https://wa.me/554599434668?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20sistemas%20de%20nebulização%20e%20odorização." target="_blank" class="fixed bottom-6 right-6 bg-essencial-green text-white p-4 rounded-full shadow-lg z-50 hover:bg-essencial-green/90 transition-all duration-300 transform hover:scale-110">
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/554599434668?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20sistemas%20de%20nebulização%20e%20odorização." target="_blank" class="fixed bottom-6 right-6 bg-essencial-green text-white p-4 rounded-full shadow-lg z-50 hover:bg-essencial-green/90 transition-all duration-300 transform hover:scale-110">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <!-- Header --><header class="bg-white shadow-sm sticky top-0 z-40">
+    <!-- Cabeçalho (Header) -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo --><a href="#" class="flex items-center space-x-3">
+            
+            <!-- Logo e Tagline -->
+            <a href="#" class="flex items-center space-x-3">
                 <img src="src/logo.png" alt="Logo Essencial Higiene" class="h-14 md:h-16 w-auto">
                 <div>
-                    <span class="text-lg font-semibold text-brand-dark block hidden md:block">Essencial Higiene</span>
+                    <span class="text-lg font-semibold text-brand-text block hidden md:block">Essencial Higiene</span>
                     <span class="text-xs text-essencial-gray hidden md:block">A Arte da Odorização Corporativa</span>
                 </div>
             </a>
-            <!-- CTA Header --><a href="#contato" class="bg-essencial-blue text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-essencial-blue/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            
+            <!-- CTA Principal -->
+            <a href="#contato" class="bg-essencial-blue text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-essencial-blue/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 Pedir Orçamento
             </a>
         </nav>
     </header>
 
-    <!-- Hero Section --><section class="relative bg-gray-50 overflow-hidden">
-        <!-- Canvas para Animação de Frescor (partículas sutis) --><canvas id="freshness-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+    <!-- Seção Hero (Primeira Dobra) -->
+    <section class="relative bg-brand-bg overflow-hidden">
+        
+        <!-- Canvas para Animação de Neblina -->
+        <canvas id="freshness-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
 
         <div class="relative container mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28 flex flex-col lg:flex-row items-center z-10">
-            <!-- Text Content --><div class="lg:w-1/2 w-full text-center lg:text-left mb-12 lg:mb-0">
+            
+            <!-- Textos da Hero -->
+            <div class="lg:w-1/2 w-full text-center lg:text-left mb-12 lg:mb-0">
                 <span class="text-essencial-blue font-semibold uppercase tracking-wider text-sm">Novo Serviço Essencial</span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mt-4 mb-6 leading-tight animate-slow-fade-in">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text mt-4 mb-6 leading-tight animate-slow-fade-in">
                     Transforme Seu Espaço. <span class="text-essencial-blue">A Experiência Olfativa</span> Inesquecível.
                 </h1>
                 <p class="text-lg md:text-xl text-essencial-gray font-light mb-10 max-w-xl mx-auto lg:mx-0">
@@ -81,17 +99,19 @@
                 </a>
             </div>
             
-            <!-- Image Content --><div class="lg:w-1/2 w-full flex justify-center lg:justify-end animate-slow-fade-in" style="animation-delay: 200ms;">
+            <!-- Imagem do Produto -->
+            <div class="lg:w-1/2 w-full flex justify-center lg:justify-end animate-slow-fade-in" style="animation-delay: 200ms;">
                 <img src="src/odorizador4.jpg" alt="Equipamento de Nebulização e Odorização" class="w-full max-w-md rounded-lg shadow-2xl">
             </div>
         </div>
     </section>
 
-    <!-- Seção: O Problema / A Solução --><section class="py-24 md:py-36 bg-white">
+    <!-- Seção de Benefícios (Marketing Olfativo) -->
+    <section class="py-24 md:py-36 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto fade-in-section">
                 <span class="text-essencial-green font-semibold uppercase tracking-wider text-sm">Marketing Olfativo</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-4 mb-5">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-text mt-4 mb-5">
                     Seu ambiente diz quem você é. Qual a sua assinatura?
                 </h2>
                 <p class="text-lg text-essencial-gray font-light">
@@ -100,9 +120,12 @@
             </div>
 
             <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Benefício 1: Fragrâncias --><div class="bg-gray-50 p-8 rounded-lg shadow-lg fade-in-section transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                
+                <!-- Card 1: Fragrâncias -->
+                <div class="bg-brand-bg p-8 rounded-lg shadow-lg fade-in-section transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="mb-4">
-                        <!-- Ícone: Fragrância (Folha) --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-essencial-green">
+                        <!-- Ícone: Folha (Fragrância) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-essencial-green">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" />
                         </svg>
                     </div>
@@ -111,9 +134,12 @@
                         Escolha a assinatura olfativa ideal em nosso catálogo: <strong>Palacio, Pitanga, Marine, Capim Limão, Oriente e Garden.</strong> Crie uma poderosa âncora de memória.
                     </p>
                 </div>
-                <!-- Benefício 2 --><div class="bg-gray-50 p-8 rounded-lg shadow-lg fade-in-section transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                
+                <!-- Card 2: Neutralização -->
+                <div class="bg-brand-bg p-8 rounded-lg shadow-lg fade-in-section transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="mb-4">
-                        <!-- Ícone: Neutralização (Escudo) --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-essencial-blue">
+                        <!-- Ícone: Escudo (Neutralização) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-essencial-blue">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
@@ -122,13 +148,21 @@
                         Nossa tecnologia de nebulização não mascara odores, ela os neutraliza. Perfeito para academias, clínicas, banheiros e restaurantes.
                     </p>
                 </div>
-                <!-- Benefício 3 --><div class="bg-gray-50 p-8 rounded-lg shadow-lg fade-in-section transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                
+                <!-- Card 3: Tecnologia -->
+                <div class="bg-brand-bg p-8 rounded-lg shadow-lg fade-in-section transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                     <div class="mb-4">
-                        <!-- Ícone: Tecnologia (Partículas/Atom/Ondas) --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-essencial-blue">
+                        <!-- Ícone: Partículas (Nebulização) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-essencial-blue">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
                           <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
                           <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 10.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM5.25 7.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM12.75 7.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM5.25 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM12.75 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM17.25 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM8.25 17.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 10.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0zM5.25 7.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 7.875a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 14.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 17.125a2.25 2.25 0 114.5 0 2.25 2.25 0 01-4.5 0z" />
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold text-essencial-blue mb-4">Tecnologia de Nebulização</h3>
@@ -140,10 +174,11 @@
         </div>
     </section>
 
-    <!-- Seção: Showcase de Imagens --><section class="py-24 md:py-36 bg-gray-50">
+    <!-- Seção de Imagens (Design) -->
+    <section class="py-24 md:py-36 bg-brand-bg">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mb-5">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-text mb-5">
                     Elegância que se vê. Frescor que se sente.
                 </h2>
                 <p class="text-lg text-essencial-gray font-light mb-16">
@@ -151,12 +186,15 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                <!-- Imagem 1 com Hover Zoom -->
                 <div class="rounded-lg overflow-hidden shadow-2xl fade-in-section group" style="transition-delay: 100ms;">
                     <img src="src/odorizador3.jpg" alt="Odorizador em sala de estar" class="w-full h-full object-cover aspect-[4/5] transition-transform duration-500 group-hover:scale-105">
                 </div>
+                <!-- Imagem 2 com Hover Zoom -->
                 <div class="rounded-lg overflow-hidden shadow-2xl fade-in-section group" style="transition-delay: 200ms;">
                     <img src="src/odorizador2.jpg" alt="Odorizador em corredor de escritório" class="w-full h-full object-cover aspect-[4/5] transition-transform duration-500 group-hover:scale-105">
                 </div>
+                <!-- Imagem 3 com Hover Zoom -->
                 <div class="rounded-lg overflow-hidden shadow-2xl fade-in-section group" style="transition-delay: 300ms;">
                     <img src="src/odorizador5.jpg" alt="Detalhe do odorizador na parede" class="w-full h-full object-cover aspect-[4/5] transition-transform duration-500 group-hover:scale-105">
                 </div>
@@ -164,48 +202,58 @@
         </div>
     </section>
 
-    <!-- Seção: Como Funciona (Sistema de Aluguel) --><section class="py-24 md:py-36 bg-white">
+    <!-- Seção "Como Funciona" (Aluguel) -->
+    <section class="py-24 md:py-36 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto fade-in-section">
                 <span class="text-essencial-blue font-semibold uppercase tracking-wider text-sm">Nosso Serviço</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-dark mt-4 mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-text mt-4 mb-16">
                     Zero Preocupação: A Vantagem do Aluguel
                 </h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-                <!-- Passo 1 --><div class="fade-in-section" style="transition-delay: 100ms;">
+                
+                <!-- Passo 1 -->
+                <div class="fade-in-section" style="transition-delay: 100ms;">
                     <div class="w-24 h-24 bg-essencial-blue/10 text-essencial-blue rounded-full flex items-center justify-center mx-auto mb-6 relative">
-                        <!-- Ícone: Lupa --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                        <!-- Ícone: Lupa (Consultoria) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
                         <span class="absolute -top-1 -right-1 bg-essencial-blue text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">1</span>
                     </div>
-                    <h3 class="text-2xl font-semibold text-brand-dark mb-3">Consultoria e Instalação</h3>
+                    <h3 class="text-2xl font-semibold text-brand-text mb-3">Consultoria e Instalação</h3>
                     <p class="text-essencial-gray font-light">
                         Analisamos seu espaço e necessidade. Nossos técnicos instalam o equipamento no local ideal, sem custo adicional.
                     </p>
                 </div>
-                <!-- Passo 2 --><div class="fade-in-section" style="transition-delay: 200ms;">
+                
+                <!-- Passo 2 -->
+                <div class="fade-in-section" style="transition-delay: 200ms;">
                     <div class="w-24 h-24 bg-essencial-blue/10 text-essencial-blue rounded-full flex items-center justify-center mx-auto mb-6 relative">
-                        <!-- Ícone: Engrenagem/Recarga --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                        <!-- Ícone: Recarga (Manutenção) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0 0v-4.992m0 0h-4.992" />
                         </svg>
                         <span class="absolute -top-1 -right-1 bg-essencial-blue text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">2</span>
                     </div>
-                    <h3 class="text-2xl font-semibold text-brand-dark mb-3">Recargas e Manutenção</h3>
+                    <h3 class="text-2xl font-semibold text-brand-text mb-3">Recargas e Manutenção</h3>
                     <p class="text-essencial-gray font-light">
                         Você nunca fica sem. Monitoramos e agendamos as trocas de fragrância e realizamos manutenção preventiva. Tudo incluso na mensalidade.
                     </p>
                 </div>
-                <!-- Passo 3 --><div class="fade-in-section" style="transition-delay: 300ms;">
+                
+                <!-- Passo 3 -->
+                <div class="fade-in-section" style="transition-delay: 300ms;">
                     <div class="w-24 h-24 bg-essencial-blue/10 text-essencial-blue rounded-full flex items-center justify-center mx-auto mb-6 relative">
-                        <!-- Ícone: Suporte --><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                        <!-- Ícone: Suporte -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                         </svg>
                         <span class="absolute -top-1 -right-1 bg-essencial-blue text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center border-2 border-white">3</span>
                     </div>
-                    <h3 class="text-2xl font-semibold text-brand-dark mb-3">Suporte Total</h3>
+                    <h3 class="text-2xl font-semibold text-brand-text mb-3">Suporte Total</h3>
                     <p class="text-essencial-gray font-light">
                         Qualquer problema? Nossa equipe está pronta para resolver rapidamente, garantindo que seu ambiente esteja sempre perfeito.
                     </p>
@@ -214,7 +262,8 @@
         </div>
     </section>
 
-    <!-- Seção: CTA Final --><section id="contato" class="bg-brand-dark text-white">
+    <!-- Seção CTA Final (Contato) -->
+    <section id="contato" class="bg-brand-text text-white">
         <div class="container mx-auto px-6 py-24 md:py-36 text-center fade-in-section">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Pronto para transformar seu espaço?
@@ -231,12 +280,15 @@
         </div>
     </section>
 
-    <!-- Prova Social (Nova Seção) --><section class="py-24 md:py-36 bg-white">
+    <!-- Seção Prova Social (Clientes) -->
+    <section class="py-24 md:py-36 bg-white">
         <div class="container mx-auto px-6 text-center fade-in-section">
-            <h3 class="text-2xl font-semibold text-brand-dark mb-4">Confiam em Nossa Essência</h3>
+            <h3 class="text-2xl font-semibold text-brand-text mb-4">Confiam em Nossa Essência</h3>
             <p class="text-essencial-gray mb-10">Empresas que já transformaram seus ambientes conosco.</p>
             <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-                <!-- Logos de clientes com efeito grayscale/color on hover --><img src="src/gastroclinica.png" alt="Logo Cliente Gastroclínica Foz" class="h-10 md:h-12 w-auto filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                
+                <!-- Logos com Efeito Grayscale-to-Color -->
+                <img src="src/gastroclinica.png" alt="Logo Cliente Gastroclínica Foz" class="h-10 md:h-12 w-auto filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                 <img src="src/joaquina.png" alt="Logo Cliente Joaquina" class="h-10 md:h-12 w-auto filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                 <img src="src/pantanal.png" alt="Logo Cliente Restaurante Pantanal" class="h-10 md:h-12 w-auto filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
                 <img src="src/pepe.png" alt="Logo Cliente Pé & Pé Podologia" class="h-10 md:h-12 w-auto filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
@@ -245,22 +297,27 @@
         </div>
     </section>
 
-    <!-- Footer --><footer class="bg-gray-100 text-essencial-gray">
+    <!-- Rodapé (Footer) -->
+    <footer class="bg-brand-bg text-essencial-gray border-t border-gray-200">
         <div class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
-            <!-- Coluna 1: Logo e Tagline --><div class="mb-6 md:mb-0">
+            
+            <!-- Bloco 1: Logo e Social -->
+            <div class="mb-6 md:mb-0">
                 <img src="src/logo.png" alt="Logo Essencial Higiene" class="h-14 w-auto mx-auto md:mx-0">
                 <p class="mt-4 text-sm">A Arte da Odorização Corporativa.</p>
                 <div class="flex justify-center md:justify-start space-x-4 mt-5">
-                    <!-- Ícone Instagram --><a href="https://www.instagram.com/essencialhigiene.pr/" target="_blank" class="text-essencial-gray hover:text-essencial-blue transition-colors" aria-label="Instagram">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/essencialhigiene.pr/" target="_blank" class="text-essencial-gray hover:text-essencial-blue transition-colors" aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                           <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.556 0 5.829 0 8s.01 2.444.048 3.297c.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.556 15.99 5.829 16 8 16s2.444-.01 3.297-.048c.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.719-.89.923-1.416.198-.51.333-1.09.372-1.942C15.99 10.444 16 10.171 16 8s-.01-2.444-.048-3.297c-.04-.852-.174-1.433-.372-1.942C15.39 2.27 15.116 1.824 14.67 1.378A3.927 3.927 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.171 0 8 0zm0 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485-.145.373-.319.64-.599.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.389-.009-3.232-.047c-.78-.036-1.203-.166-1.485-.276-.373-.145-.64-.319-.92-.598-.28-.28-.453-.546-.598-.92-.11-.282-.24-.705-.276-1.485C1.44 10.444 1.432 10.17 1.432 8s.008-2.389.047-3.232c.036-.78.166-1.204.276-1.486.145-.373.319-.64.598-.92.28-.28.546.453.92-.598.282-.11.705-.24 1.485-.276.843-.038 1.096.047 3.232.047zM8 3.883c-2.273 0-4.117 1.844-4.117 4.117s1.844 4.117 4.117 4.117 4.117-1.844 4.117-4.117S10.273 3.883 8 3.883zm0 6.883c-1.523 0-2.76-1.237-2.76-2.76s1.237-2.76 2.76-2.76 2.76 1.237 2.76 2.76-1.237 2.76-2.76 2.76zm4.113-6.103a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92z"/>
+                           <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.556 0 5.829 0 8s.01 2.444.048 3.297c.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.556 15.99 5.829 16 8 16s2.444-.01 3.297-.048c.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.719-.89.923-1.416.198-.51.333-1.09.372-1.942C15.99 10.444 16 10.171 16 8s-.01-2.444-.048-3.297c-.04-.852-.174-1.433-.372-1.942C15.39 2.27 15.116 1.824 14.67 1.378A3.927 3.927 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.171 0 8 0zm0 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485-.145.373-.319.64-.599.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.389-.009-3.232-.047c-.78-.036-1.203-.166-1.485-.276-.373-.145-.64-.319-.92-.598-.28-.28-.453.546-.598-.92-.11-.282-.24-.705-.276-1.485C1.44 10.444 1.432 10.17 1.432 8s.008-2.389.047-3.232c.036-.78.166-1.204.276-1.486.145-.373.319-.64.598-.92.28-.28.546.453.92-.598.282-.11.705.24 1.485-.276.843-.038 1.096.047 3.232.047zM8 3.883c-2.273 0-4.117 1.844-4.117 4.117s1.844 4.117 4.117 4.117 4.117-1.844 4.117-4.117S10.273 3.883 8 3.883zm0 6.883c-1.523 0-2.76-1.237-2.76-2.76s1.237-2.76 2.76-2.76 2.76 1.237 2.76 2.76-1.237 2.76-2.76 2.76zm4.113-6.103a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92z"/>
                         </svg>
                     </a>
                 </div>
             </div>
             
-            <!-- Coluna 2: Links Rápidos (Placeholder) --><div>
-                <h4 class="text-lg font-semibold text-brand-dark mb-4">Links Úteis</h4>
+            <!-- Bloco 2: Links Úteis -->
+            <div>
+                <h4 class="text-lg font-semibold text-brand-text mb-4">Links Úteis</h4>
                 <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-essencial-blue transition-colors">Início</a></li>
                     <li><a href="#solucao" class="hover:text-essencial-blue transition-colors">Nossas Soluções</a></li>
@@ -269,8 +326,9 @@
                 </ul>
             </div>
 
-            <!-- Coluna 3: Contato --><div>
-                <h4 class="text-lg font-semibold text-brand-dark mb-4">Entre em Contato</h4>
+            <!-- Bloco 3: Contato -->
+            <div>
+                <h4 class="text-lg font-semibold text-brand-text mb-4">Entre em Contato</h4>
                 <ul class="space-y-2 text-sm">
                     <li class="flex items-center justify-center md:justify-start">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2 text-essencial-blue">
@@ -295,7 +353,40 @@
         </div>
     </footer>
 
-    <!-- JavaScript --><script src="script.js" defer></script>
+    <!-- Estrutura do Pop-up de Saída (Inicialmente Oculto) -->
+    <div id="popup-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 hidden">
+        <div id="popup-modal" class_="bg-white rounded-lg shadow-2xl w-full max-w-lg p-8 md:p-12 text-center relative hidden">
+            <!-- Botão de Fechar -->
+            <button id="popup-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <h3 class="text-2xl md:text-3xl font-bold text-essencial-blue mb-4">Não Vá Embora Ainda!</h3>
+            <p class="text-lg text-essencial-gray mb-6">
+                Descubra como transformar seu ambiente. Receba nossa <strong class="text-brand-text">Análise Olfativa Gratuita</strong> e um catálogo exclusivo de fragrâncias.
+            </p>
+            
+            <!-- Formulário Simplificado -->
+            <form action="#" method="POST">
+                <div class="mb-4">
+                    <input type="text" name="nome" placeholder="Seu nome" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-essencial-blue/50" required>
+                </div>
+                <div class="mb-6">
+                    <input type="email" name="email" placeholder="Seu melhor e-mail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-essencial-blue/50" required>
+                </div>
+                <button type="submit" class="w-full bg-essencial-green text-white font-bold text-lg py-3 px-8 rounded-lg shadow-lg hover:bg-essencial-green/80 transition-all duration-300 transform hover:scale-105">
+                    Quero Minha Análise Gratuita
+                </button>
+            </form>
+            <p class="text-xs text-gray-400 mt-4">Nós respeitamos sua privacidade. Sem spam.</p>
+        </div>
+    </div>
+
+
+    <!-- Script da Página (Animações, Pop-up, etc.) -->
+    <script src="script.js" defer></script>
 
 </body>
 </html>
